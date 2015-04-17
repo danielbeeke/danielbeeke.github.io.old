@@ -1,0 +1,21 @@
+<article class="card blog-item" style="background-color: #{{ post.color }};">
+  <a class="blog-item-link" href="{{ post.url | prepend: site.baseurl }}" style="background-image: url(/img/{{ post.image }});">
+    <span class="blog-item-title-wrapper">
+      <h1 class="blog-item-title">{{ post.title }}</h1>
+    </span>
+
+    <span class="blog-item-tags-wrapper">
+      {% for category in post.categories %}
+        <span class="tag" style="background-color: #{{ post.color }}">{{ category }}</span>
+      {% endfor %}
+    </span>
+
+    {% assign post_date = post.date | date: "%-d" %}
+
+    <span class="post-date-wrapper">
+      <span class="post-date-month">{{ post.date | date: "%b" }}</span>
+      <span class="post-date-number-first">{{ post_date | split: '' | first }}</span>
+      <span class="post-date-number-last">{{ post_date | split: '' | last }}</span>
+    </span>
+  </a>
+</article>

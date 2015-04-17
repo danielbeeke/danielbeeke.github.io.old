@@ -1,0 +1,12 @@
+.tag {
+  border-radius: $radius;
+  padding: 10px;
+  color: white;
+  background-color: $black;
+  display: block;
+  float: left;
+}
+
+.tag + .tag {
+  margin-left: $padder;
+}

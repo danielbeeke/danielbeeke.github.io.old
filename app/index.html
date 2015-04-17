@@ -1,0 +1,11 @@
+---
+layout: html
+---
+
+<div class="card-overview">
+  <div class="card-overview-inner">
+    {% for post in site.posts %}
+      {% include card.html %}
+    {% endfor %}
+  </div>
+</div>
