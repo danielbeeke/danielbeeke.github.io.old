@@ -16,7 +16,7 @@
     $(this).addClass('is-clicked')
 
     $('.blog-item-link', this).one('transitionend', function () {
-      window.location = $(this).attr('href')
+      // window.location = $(this).attr('href')
     })
     return false
   })
