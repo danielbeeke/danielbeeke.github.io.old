@@ -2,11 +2,13 @@
   border-radius: $radius;
   padding: 10px;
   color: white;
-  background-color: $black;
+  background-color: $gray;
   display: block;
   float: left;
-}
+  text-decoration: none;
+  transition: all $speed $easing;
 
-.tag + .tag {
-  margin-left: $padder;
+  &.active {
+    background: $black;
+  }
 }

@@ -2,7 +2,17 @@
 layout: html
 ---
 
-<div class="card-overview">
+<div class="sidebar-left transition-in">
+  {% include author.html %}
+
+  <div class="card-filters">
+    {% for category in site.categories %}
+      <a href="#" class="tag" data-tag="{{ category[0] }}">{{ category[0] }}</a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card-overview transition-in">
   {% for post in site.posts %}
     {% include card.html %}
   {% endfor %}

@@ -10,14 +10,16 @@
         <link rel="stylesheet" href="/css/styles.css">
         <!-- endbuild -->
 
-    </head>
-    <body{% if page.color %} style="background-color: #{{ page.color }};"{% endif %}>
-
-          {{ content }}
 
     <!-- build:js(app) /js/scripts.js -->
     <script src="/_bower_components/jquery/dist/jquery.js"></script>
     <script src="/js/main.js"></script>
     <!-- endbuild -->
+
+    </head>
+    <body>
+
+    {{ content }}
+
     </body>
 </html>

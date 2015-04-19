@@ -1,0 +1,37 @@
+.hamburger-menu {
+  @include grid-span(1, 2);
+  margin-top: 72px;
+  width: 40px;
+  z-index: 4;
+  position: relative;
+  transition: opacity $speed $easing;
+
+  .bar {
+    width: 40px;
+    height: 3px;
+    background: $gray;
+    transition: all $speed $easing;
+  }
+
+  .bar + .bar {
+    margin-top: 10px;
+  }
+
+  &:hover {
+    .bar:nth-child(1) {
+      transform: rotate(-45deg);
+    }
+
+    .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .bar:nth-child(3) {
+      transform: rotate(45deg);
+    }
+  }
+
+  &.fade-out {
+    opacity: 0;
+  }
+}

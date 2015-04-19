@@ -1,0 +1,5 @@
+@include add-grid(7);
+@include add-gutter(1 / 20);
+@include sgs-change('debug', true);
+// @include add-gutter-style('split');
+@include sgs-change('output', 'isolation');

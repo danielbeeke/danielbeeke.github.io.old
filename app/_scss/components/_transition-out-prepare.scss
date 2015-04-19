@@ -1,0 +1,7 @@
+.transition-out-prepare {
+  transition: opacity $speed $easing ($speed / 2) !important;
+}
+
+.transition-out {
+  opacity: 0;
+}

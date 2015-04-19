@@ -1,0 +1,22 @@
+body {
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    @include background-grid($color: red);
+    pointer-events: none;
+    z-index: 1001;
+    position: fixed;
+    opacity: 0;
+    transition: $speed $easing;
+  }
+
+  &.has-grid-overlay-enabled:after {
+    opacity: .5;
+  }
+}

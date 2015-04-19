@@ -1,5 +1,24 @@
 .card-overview {
-  max-width: 840px;
-  margin: 0 auto;
+  @include grid-span(4, 3);
   @include clearfix;
+  transition: all $speed $easing;
+
+  .padder {
+    @include float-span(1, 1, 4);
+
+    &:nth-child(4) {
+      margin-right: 0;
+    }
+  }
+
+  &.transition-in {
+    opacity: 0;
+
+    @for $i from 1 through 20 {
+      .padder:nth-child(#{$i}) .card {
+        opacity: 0;
+        transform: translateY(- (100 * ($i / 3)));
+      }
+    }
+  }
 }

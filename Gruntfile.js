@@ -110,7 +110,7 @@ module.exports = function (grunt) {
       options: {
         debugInfo: false,
         lineNumbers: false,
-        require: ['sass-globbing'],
+        require: ['sass-globbing', 'singularitygs', 'breakpoint'],
         loadPath: 'app/_bower_components'
       },
       dist: {

@@ -1,5 +1,5 @@
 (function ($) {
-
+$(function() {
   "use strict";
 
   $('.card-overview .card').on('mousemove', function () {
@@ -12,26 +12,106 @@
     }
   })
 
-  $('.card').on('click', function () {
-    $(this).addClass('is-clicked')
+  $('.hamburger-menu').on('click', function () {
+    var that = this
+    $('.post').addClass('transition-post-out').one('transitionend', function () {
+      window.location = $(that).attr('href')
+    })
 
-    $('.blog-item-link', this).one('transitionend', function () {
-      // window.location = $(this).attr('href')
+    $(that).addClass('fade-out')
+
+    return false
+  })
+
+  $('.card-filters .tag').on('click', function () {
+    $(this).toggleClass('active')
+
+    $('.card').parent().addClass('hidden').removeClass('visible')
+
+    setTimeout(function () {
+      if ($('.card-filters .tag.active').length) {
+        $.each($('.card-filters .tag.active'), function (delta, category) {
+          $('.card.' + $(category).attr('data-tag')).parent().addClass('visible').removeClass('hidden')
+        })
+      }
+      else {
+        $('.card').parent().removeClass('hidden').addClass('visible')
+      }
+    }, 300)
+
+    return false
+  })
+
+  setTimeout(function () {
+    $('.transition-in').removeClass('transition-in')
+  }, 10)
+
+  $('.card').on('click', function () {
+    var that = this
+    $(this).addClass('is-clicked')
+    $('html').addClass('has-active-card')
+    var transitionImage = $($('.blog-item-background', this)[0].outerHTML)
+    transitionImage.addClass('transition-card')
+
+    transitionImage.css({
+      width: $(that).width() * 1.36,
+      height: $(that).height() * 1.36,
+      top: $(that).offset().top - $(window).scrollTop() - 24,
+      left: $(that).offset().left - 47
+    })
+
+    $('body').append(transitionImage)
+
+    setTimeout(function () {
+      transitionImage.addClass('show')
+    }, 100)
+
+    $('body').append('<div class="fifth-grid-start-tester"></div>')
+
+    var newLeft = $('.fifth-grid-start-tester').offset().left
+
+    $('body > *:not(.transition-card)').addClass('transition-out-prepare')
+
+    $('body').append('<h1 class="post-title title-height-tester">' + $('.blog-item-title', that).text() + '</h1>')
+
+    var newTitleHeight = $('.title-height-tester').outerHeight()
+
+    $('.title-height-tester').remove()
+    setTimeout(function () {
+      $('body > *:not(.transition-card)').addClass('transition-out')
+    }, 100)
+
+    $('.transition-card').one('transitionend', function () {
+      $('.transition-card').css({
+        left: newLeft,
+        top: newTitleHeight + (46 * 2) + 78,
+        width: $('.fifth-grid-start-tester').width(),
+        height: 400
+      }).one('transitionend', function () {
+        window.location = $('.blog-item-link', that).attr('href')
+      })
     })
     return false
   })
 
+  $(document).keydown(function(e) {
+    if(e.which == 59 && e.ctrlKey) {
+      $('body').toggleClass('has-grid-overlay-enabled')
+    }
+  })
 
   $(window).on('resize', function () {
     setItemsInARowClass()
   })
 
   function setItemsInARowClass() {
-    var firstCard = $('.card:first')
-    var margin = parseInt(firstCard.css('margin-left'))
-    var totalCards = $('.card-overview .card').length
-    var cardsInRow = Math.floor($('.card-overview').width() / (firstCard.width() + margin * 2))
-    var rowsInGrid = Math.floor($('.card-overview').height() / (firstCard.height() + margin * 2))
+    var firstCard = $('.padder:first')
+    var margin = parseInt(firstCard.css('margin-right'))
+    var totalCards = $('.card-overview .padder').length
+    var cardsInRow = Math.floor(($('.card-overview').width() + margin) / (firstCard.outerWidth()))
+    var rowsInGrid = Math.floor(($('.card-overview').height() + margin) / (firstCard.outerHeight()))
+
+    console.log(cardsInRow)
 
     $.each($('.card-overview .card'), function (delta, card) {
       var cardIndex = delta + 1
@@ -79,5 +159,5 @@
   }
 
   setItemsInARowClass()
-
+});
 }(jQuery));

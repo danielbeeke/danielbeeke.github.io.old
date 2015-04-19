@@ -1,12 +1,33 @@
+.padder {
+  padding-bottom: 32%;
+  position: relative;
+  margin-top: 1.2%;
+  transition: opacity $speed $easing;
+
+  &.hidden {
+    overflow: hidden;
+    padding-bottom: 0;
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+  }
+
+  &.visible {
+    opacity: 1;
+    max-height: 400px;
+  }
+}
+
 .blog-item.card {
+  width: 100%;
+  height: 100%;
   display: block;
-  width: 260px;
-  height: 350px;
   float: left;
   box-shadow: 0 0 30px rgba(black, .0);
   border-radius: $radius;
-  position: relative;
-  margin: 10px;
+  position: absolute;
+  background: white;
+  top: 0;
   z-index: 2;
   perspective: 600px;
   transition: transform $speed $easing,
@@ -61,6 +82,20 @@
     left: 0;
     background-size: cover;
     background-position: center center;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 30;
+      background: $gray-light;
+      opacity: 0;
+      transition: opacity $speed $easing $speed;
+    }
   }
 
   .blog-item-link {
@@ -97,15 +132,16 @@
 
   .post-date-wrapper {
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     right: 6px;
-    transition: $speed $easing;
+    transition: opacity $speed $easing;
   }
 
   .blog-item-title-wrapper {
     display: block;
     padding: 16px 32px;
     text-align: center;
+    transition: opacity $speed $easing;
   }
 
   .blog-item-title {
@@ -125,6 +161,10 @@
     left: $padder;
     max-width: 90%;
     transition: $speed $easing;
+
+    .tag + .tag {
+      margin-left: $padder;
+    }
   }
 
   &.is-clicked,
@@ -161,6 +201,24 @@
       opacity: 1 !important;
       transform: scale(1.36) translateY(27px);
       z-index: 4;
+    }
+  }
+
+  &.is-clicked {
+    &:before, &:after,
+    .blog-item-link:after,
+    .post-date-wrapper,
+    .blog-item-tags-wrapper,
+    .blog-item-title-wrapper {
+      opacity: 0;
+    }
+
+    .blog-item-link {
+      transform: scale(1) translateY(0);
+    }
+
+    .blog-item-background:after {
+      opacity: 1;
     }
   }
 }

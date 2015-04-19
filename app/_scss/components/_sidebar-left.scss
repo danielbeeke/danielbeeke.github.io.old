@@ -1,0 +1,10 @@
+.sidebar-left {
+  transition: opacity $speed $easing;
+  @include grid-span(1, 2);
+  clear: both;
+  opacity: 1;
+}
+
+.sidebar-left.transition-in {
+  opacity: 0;
+}
