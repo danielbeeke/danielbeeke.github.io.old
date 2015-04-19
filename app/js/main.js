@@ -1,6 +1,6 @@
 (function ($) {
 $(function() {
-  "use strict";
+  'use strict';
 
   $('.card-overview .card').on('mousemove', function () {
     $('body').addClass('has-card-hover')
@@ -104,7 +104,7 @@ $(function() {
   })
 
   $(document).keydown(function(e) {
-    if(e.which == 59 && e.ctrlKey) {
+    if(e.which === 59 && e.ctrlKey) {
       $('body').toggleClass('has-grid-overlay-enabled')
     }
   })
@@ -127,7 +127,7 @@ $(function() {
     $.each($('.card-overview .card'), function (delta, card) {
       if ($(card).parent().hasClass('visible')) {
 
-        if ((visibleCounter % cardsInRow) + 1 == cardsInRow) {
+        if ((visibleCounter % cardsInRow) + 1 === cardsInRow) {
           $(card).parent().addClass('last')
         }
 
@@ -140,12 +140,12 @@ $(function() {
 
       var topShadow = rowIndex > 1
       var leftShadow = delta % cardsInRow > 0
-      var rightShadow = delta % cardsInRow != (cardsInRow - 1) && cardIndex != totalCards
+      var rightShadow = delta % cardsInRow !== (cardsInRow - 1) && cardIndex !== totalCards
       var bottomShadow = true
 
       if (
-        rowsInGrid == rowIndex ||
-        (rowsInGrid - 1) == rowIndex && ((delta % cardsInRow) + 1) > cardsInLastRow)
+        rowsInGrid === rowIndex ||
+        (rowsInGrid - 1) === rowIndex && ((delta % cardsInRow) + 1) > cardsInLastRow)
       {
         bottomShadow = false
       }
