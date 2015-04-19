@@ -27,9 +27,11 @@
   })
 
   function setItemsInARowClass() {
+    var firstCard = $('.card:first')
+    var margin = parseInt(firstCard.css('margin-left'))
     var totalCards = $('.card-overview .card').length
-    var cardsInRow = Math.floor($('.card-overview').width() / 260)
-    var rowsInGrid = Math.floor($('.card-overview').height() / 350)
+    var cardsInRow = Math.floor($('.card-overview').width() / (firstCard.width() + margin * 2))
+    var rowsInGrid = Math.floor($('.card-overview').height() / (firstCard.height() + margin * 2))
 
     $.each($('.card-overview .card'), function (delta, card) {
       var cardIndex = delta + 1
