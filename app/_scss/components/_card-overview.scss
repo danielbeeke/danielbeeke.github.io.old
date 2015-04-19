@@ -1,9 +1,5 @@
 .card-overview {
-  margin-top: 200px;
-  text-align: center;
-}
-
-.card-overview-inner {
-  display: inline-block;
-  text-align: left;
+  max-width: 840px;
+  margin: 0 auto;
+  @include clearfix;
 }

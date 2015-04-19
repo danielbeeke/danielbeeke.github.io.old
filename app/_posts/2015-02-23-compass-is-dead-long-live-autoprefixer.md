@@ -2,7 +2,7 @@
 title:  "Compass is dead, long live autoprefixer"
 categories: scss workflow
 image: compass.jpg
-color: 4e9a06
+color: c85a4b
 ---
 
 # 'Allo, 'Allo!

@@ -6,20 +6,88 @@
   box-shadow: 0 0 30px rgba(black, .0);
   border-radius: $radius;
   position: relative;
-  margin: 10px;
+  margin: 8px;
   z-index: 2;
+  perspective: 600px;
   transition: transform $speed $easing,
               z-index 0s $speed,
               opacity $speed $easing;
 
+  .front, .back {
+    transition: transform $speed $easing;
+    position: absolute;
+    backface-visibility: hidden;
+    z-index: 4;
+    width: 260px;
+    height: 350px;
+    top: 0;
+    left: 0;
+
+    &:before, &:after {
+      pointer-events: none;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity $speed $easing,
+                  z-index $speed $easing $speed,
+                  height $speed $easing,
+                  width $speed $easing;
+      transform: translate(-50%, -50%);
+    }
+
+    &:before {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right,
+        rgba(black, 0) 0%,
+        rgba(black, .8) 30%,
+        rgba(black, .8) 70%,
+        rgba(black, 0) 100%
+      );
+    }
+
+    &:after {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom,
+        rgba(black, 0) 0%,
+        rgba(black, .8) 30%,
+        rgba(black, .8) 70%,
+        rgba(black, 0) 100%
+      );
+    }
+  }
+
+  .front {
+    transform: rotateY(0deg);
+  }
+
+  .back {
+    transform: rotateY(180deg) translate(-50%, -50%) translateY(0);
+    background: white;
+  }
+
+  .back-inner {
+    background: white;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    border: 1px solid white;
+  }
+
   .blog-item-link {
+    border: 2px solid white;
     background-size: cover;
     background-position: center center;
     text-decoration: none;
     width: 100%;
     height: 100%;
     position: absolute;
-    border: 0px solid white;
     z-index: 3;
     transform: scale(1) translateY(0);
     transition: transform $speed $easing,
@@ -46,48 +114,11 @@
     }
   }
 
-  &:before, &:after {
-    pointer-events: none;
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity $speed $easing,
-                z-index $speed $easing $speed,
-                height $speed $easing,
-                width $speed $easing;
-    transform: translate(-50%, -50%);
-  }
-
-  &:before {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right,
-      rgba(black, 0) 0%,
-      rgba(black, .8) 30%,
-      rgba(black, .8) 70%,
-      rgba(black, 0) 100%
-    );
-  }
-
-  &:after {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-      rgba(black, 0) 0%,
-      rgba(black, .8) 30%,
-      rgba(black, .8) 70%,
-      rgba(black, 0) 100%
-    );
-  }
-
   .post-date-wrapper {
     position: absolute;
     bottom: 0;
     right: 6px;
+    transition: $speed $easing;
   }
 
   .blog-item-title-wrapper {
@@ -112,48 +143,135 @@
     bottom: $padder;
     left: $padder;
     max-width: 90%;
+    transition: $speed $easing;
   }
 
   &.is-clicked,
   &:hover {
-    z-index: 3;
+    z-index: 5;
     transition: transform $speed $easing,
                 z-index 0s 0s,
                 opacity $speed $easing;
 
-    &:before, &:after {
-      opacity: .7;
-      transition: opacity $speed $easing,
-                  z-index $speed 0s,
-                  height $speed $easing,
-                  width $speed $easing;
+    .front, .back {
+      &:before, &:after {
+        opacity: .7;
+        transition: opacity $speed $easing,
+                    z-index $speed 0s,
+                    height $speed $easing,
+                    width $speed $easing;
+      }
+
+      &:before {
+        width: 200%;
+      }
+
+      &:after {
+        height: 200%;
+      }
     }
 
-    &:before {
-      width: 200%;
-    }
-
-    &:after {
-      height: 200%;
-    }
 
     .blog-item-link {
-      border: 1px solid white;
       transition: transform $speed $easing,
                   border $speed $easing,
                   z-index 0s 0s,
                   opacity $speed $easing;
       opacity: 1 !important;
-      transform: scale(1.36) translateY(15px);
+      transform: scale(1.36) translateY(27px);
       z-index: 4;
     }
   }
 
   &.is-clicked {
     .blog-item-link {
-      transform: scale(1.36) translateY(15px);
+      animation: border_fill 1s $easing 0s 1 both;
+    }
+
+    .blog-item-title-wrapper:after {
+      content: '';
+      width: 2px;
+      top: 0;
+      left: 100%;
+      height: 2px;
+      background: blue;
+      position: absolute;
+      animation: border_fill_after 1s $easing 0s 1 both;
+    }
+
+    .post-date-wrapper,
+    .blog-item-tags-wrapper {
+      opacity: 0;
     }
   }
+}
+
+@keyframes border_fill {
+  0% {
+    border-right-color: white;
+    border-bottom-color: white;
+    border-left-color: white;
+    border-top-color: white;
+  }
+  24.9% {
+    border-right-color: white;
+    border-bottom-color: white;
+    border-left-color: white;
+    border-top-color: white;
+  }
+  25% {
+    border-right-color: blue;
+    border-bottom-color: white;
+    border-left-color: white;
+    border-top-color: white;
+  }
+  49.9% {
+    border-right-color: blue;
+    border-bottom-color: white;
+    border-left-color: white;
+    border-top-color: white;
+  }
+  50% {
+    border-right-color: blue;
+    border-bottom-color: blue;
+    border-left-color: white;
+    border-top-color: white;
+  }
+  74.9% {
+    border-right-color: blue;
+    border-bottom-color: blue;
+    border-left-color: white;
+    border-top-color: white;
+  }
+  75% {
+    border-right-color: blue;
+    border-bottom-color: blue;
+    border-left-color: blue;
+    border-top-color: white;
+  }
+  99.9% {
+    border-right-color: blue;
+    border-bottom-color: blue;
+    border-left-color: blue;
+    border-top-color: white;
+  }
+  100% {
+    border-right-color: blue;
+    border-bottom-color: blue;
+    border-left-color: blue;
+    border-top-color: blue;
+  }
+}
+
+@keyframes border_fill_after {
+  0% { height: 2px; width: 2px; top: -2px; left: 100%; }
+  25% { height: 350px; width: 2px; top: -2px; left: 100%; }
+  25.1% { height: 2px; width: 2px; top: 100%; left: 100%; }
+  50% { height: 2px; width: 260px; top: 100%; left: -2px; }
+  50.1% { height: 2px; width: 2px; top: 100%; left: -2px; }
+  75% { height: 350px; width: 2px; top: -2px; left: -2px; }
+  75.1% { height: 2px; width: 2px; top: -2px; left: -2px; }
+  100% { height: 2px; width: 260px; top: -2px; left: -2px; }
 }
 
 .has-card-hover {
@@ -162,11 +280,13 @@
                 z-index 0s $speed,
                 opacity $speed $easing;
 
-    &:before, &:after {
-      transition: opacity $speed $easing 0s,
-                  z-index $speed $easing $speed,
-                  height $speed $easing 0s,
-                  width $speed $easing 0s;
+    .front, .back {
+      &:before, &:after {
+        transition: opacity $speed $easing 0s,
+                    z-index $speed $easing $speed,
+                    height $speed $easing 0s,
+                    width $speed $easing 0s;
+      }
     }
 
     .blog-item-link {
@@ -181,11 +301,13 @@
                   z-index 0s ($speed * 1.2),
                   opacity $speed $easing;
 
-      &:before, &:after {
-        transition: opacity $speed $easing ($speed * 1.2),
-                    z-index $speed 0s,
-                    height $speed $easing ($speed * 1.2),
-                    width $speed $easing ($speed * 1.2);
+      .front, .back {
+        &:before, &:after {
+          transition: opacity $speed $easing ($speed * 1.2),
+                      z-index $speed 0s,
+                      height $speed $easing ($speed * 1.2),
+                      width $speed $easing ($speed * 1.2);
+        }
       }
 
       .blog-item-link {
@@ -199,47 +321,59 @@
 }
 
 .card-overview {
-  .card[data-horizontal-shadow="right"]:before {
-    background: linear-gradient(to right,
-      rgba(black, 0) 0%,
-      rgba(black, 0) 30%,
-      rgba(black, .8) 70%,
-      rgba(black, 0) 100%
-    );
+  .card[data-horizontal-shadow="right"] {
+    .front:before, .back:before {
+      background: linear-gradient(to right,
+        rgba(black, 0) 0%,
+        rgba(black, 0) 30%,
+        rgba(black, .8) 70%,
+        rgba(black, 0) 100%
+      );
+    }
   }
 
-  .card[data-horizontal-shadow="left"]:before {
-    background: linear-gradient(to right,
-      rgba(black, 0) 0%,
-      rgba(black, .8) 30%,
-      rgba(black, 0) 70%,
-      rgba(black, 0) 100%
-    );
+  .card[data-horizontal-shadow="left"] {
+    .front:before, .back:before {
+      background: linear-gradient(to right,
+        rgba(black, 0) 0%,
+        rgba(black, .8) 30%,
+        rgba(black, 0) 70%,
+        rgba(black, 0) 100%
+      );
+    }
   }
 
-  .card[data-horizontal-shadow="none"]:before {
-    display: none;
+  .card[data-horizontal-shadow="none"] {
+    .front:before, .back:before {
+      display: none;
+    }
   }
 
-  .card[data-vertical-shadow="top"]:after {
-    background: linear-gradient(to bottom,
-      rgba(black, 0) 0%,
-      rgba(black, .8) 30%,
-      rgba(black, 0) 70%,
-      rgba(black, 0) 100%
-    );
+  .card[data-vertical-shadow="top"] {
+    .front:after, .back:after {
+      background: linear-gradient(to bottom,
+        rgba(black, 0) 0%,
+        rgba(black, .8) 30%,
+        rgba(black, 0) 70%,
+        rgba(black, 0) 100%
+      );
+    }
   }
 
-  .card[data-vertical-shadow="bottom"]:after {
-    background: linear-gradient(to bottom,
-      rgba(black, 0) 0%,
-      rgba(black, 0) 30%,
-      rgba(black, .8) 70%,
-      rgba(black, 0) 100%
-    );
+  .card[data-vertical-shadow="bottom"] {
+    .front:after, .back:after {
+      background: linear-gradient(to bottom,
+        rgba(black, 0) 0%,
+        rgba(black, 0) 30%,
+        rgba(black, .8) 70%,
+        rgba(black, 0) 100%
+      );
+    }
   }
 
-  .card[data-vertical-shadow="none"]:after {
-    display: none;
+  .card[data-vertical-shadow="none"] {
+    .front:after, .back:after {
+      display: none;
+    }
   }
 }
