@@ -8,7 +8,7 @@
   text-decoration: none;
   transition: all $speed $easing;
 
-  &.active {
+  &.active, &:hover {
     background: $black;
   }
 }

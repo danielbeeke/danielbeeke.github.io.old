@@ -29,22 +29,31 @@ $(function() {
     $('.card').parent().addClass('hidden').removeClass('visible')
 
     setTimeout(function () {
-      if ($('.card-filters .tag.active').length) {
-        $.each($('.card-filters .tag.active'), function (delta, category) {
-          $('.card.' + $(category).attr('data-tag')).parent().addClass('visible').removeClass('hidden')
-        })
-      }
-      else {
-        $('.card').parent().removeClass('hidden').addClass('visible')
-      }
+      setFilters()
+      setItemsInARowClass()
     }, 300)
 
     return false
   })
 
+  function setFilters() {
+    if ($('.card-filters .tag.active').length) {
+      $.each($('.card-filters .tag.active'), function (delta, category) {
+        $('.card.' + $(category).attr('data-tag')).parent().addClass('visible').removeClass('hidden')
+      })
+    }
+    else {
+      $('.card').parent().removeClass('hidden').addClass('visible')
+    }
+  }
+
   setTimeout(function () {
     $('.transition-in').removeClass('transition-in')
   }, 10)
+
+  setTimeout(function () {
+    $('.transition-in-prepare').removeClass('transition-in-prepare')
+  }, 100)
 
   $('.card').on('click', function () {
     var that = this
@@ -111,9 +120,20 @@ $(function() {
     var cardsInRow = Math.floor(($('.card-overview').width() + margin) / (firstCard.outerWidth()))
     var rowsInGrid = Math.floor(($('.card-overview').height() + margin) / (firstCard.outerHeight()))
 
-    console.log(cardsInRow)
+    $('.padder.last').removeClass('last')
+
+    var visibleCounter = 0
 
     $.each($('.card-overview .card'), function (delta, card) {
+      if ($(card).parent().hasClass('visible')) {
+
+        if ((visibleCounter % cardsInRow) + 1 == cardsInRow) {
+          $(card).parent().addClass('last')
+        }
+
+        visibleCounter++
+      }
+
       var cardIndex = delta + 1
       var rowIndex = Math.floor(delta / cardsInRow) + 1
       var cardsInLastRow = cardsInRow - ((cardsInRow * rowsInGrid) - totalCards)
@@ -158,6 +178,7 @@ $(function() {
     })
   }
 
+  setFilters()
   setItemsInARowClass()
 });
 }(jQuery));

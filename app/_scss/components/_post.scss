@@ -2,6 +2,7 @@
   @include grid-span(5, 2);
   transition: transform $speed $easing;
   transform: translateX(0);
+  padding-bottom: 100px;
 
   .site-author {
     transition: opacity $speed $easing;
@@ -11,6 +12,13 @@
     h1 {
       margin-top: 0;
     }
+  }
+
+  pre {
+    @include grid-span(5, 0, 3);
+    background: $gray-light;
+    padding: 20px;
+    font-size: 20px;
   }
 }
 
@@ -70,6 +78,10 @@
   > *:not(.post-image) {
     transition: opacity $speed $easing;
     opacity: 1;
+  }
+
+  pre + p {
+    clear: left;
   }
 
   p {
@@ -133,5 +145,11 @@
 
   &.post {
     transform: translateX(100px);
+  }
+}
+
+@for $i from 1 through 30 {
+  .card-overview.transition-in-prepare .padder:nth-child(#{$i}) .card {
+    transition-delay: $i * .05s !important;
   }
 }
