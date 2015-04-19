@@ -246,15 +246,26 @@ module.exports = function (grunt) {
             'img/**/*',
             'fonts/**/*',
             // Like Jekyll, exclude files & folders prefixed with an underscore.
-            '!**/_*{,/**}',
+            '!**/_*{,/**}'
             // Explicitly add any files your site needs for distribution here.
             //'_bower_components/jquery/jquery.min.js',
-            '../CNAME'
             //'apple-touch*.png'
           ],
           dest: '<%= yeoman.dist %>'
         }]
       },
+
+      cname: {
+        files: [{
+          expand: true,
+          dot: true,
+          src: [
+            'CNAME'
+          ],
+          dest: '<%= yeoman.dist %>'
+        }]
+      },
+
       // Copy CSS into .tmp directory for Autoprefixer processing
       stageCss: {
         files: [{
@@ -327,7 +338,8 @@ module.exports = function (grunt) {
       ],
       dist: [
         'sass:dist',
-        'copy:dist'
+        'copy:dist',
+        'copy:cname'
       ]
     }
   });
