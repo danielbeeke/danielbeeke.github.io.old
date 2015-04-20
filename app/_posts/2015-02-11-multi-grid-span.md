@@ -5,9 +5,11 @@ image: grid.jpg
 color: 04629f
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum, magna eu tempus convallis, nibh lacus sodales felis, quis laoreet nisi massa ac turpis. Donec ultricies tempor metus, et condimentum quam. Aliquam mattis et turpis in pharetra.
+In this article I will tell about a little trick that makes it easy to create a (simple) responsive site with little code.
 
-Suspendisse et porta felis, volutpat porttitor purus. Duis ut nisi id lacus viverra lacinia vitae eu eros. Nam volutpat purus et quam pretium malesuada. Integer ultrices diam non convallis euismod. Phasellus eu velit pretium, sodales dui id, cursus enim. Cras a dolor non elit condimentum rhoncus. Sed eget quam quis velit finibus auctor non sed arcu. Proin in justo nibh. Donec commodo neque nisi, ornare faucibus lorem sodales eget. Nulla eu arcu velit. Nullam finibus faucibus urna. Donec at augue non dui pellentesque ornare et sit amet sem.
+For quite a while I have been using singularity. It is a very flexibel sass grid system. You can create symmetric grids and also asymmetric grids. With asymmetric grids it is possible to create a responsive sites with just under 30 lines of code.
+
+This trick is not always possible, but it is for example possible when you have a design with 12 columns, where on each breakpoint (from desktop to mobile) you remove columns from the sides.
 
 <pre><code>.post {
   @include grid-span(5, 2);

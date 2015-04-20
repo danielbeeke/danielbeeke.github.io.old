@@ -1,5 +1,13 @@
 .site-title {
-  font-size: 60px;
-  @include grid-span(3, 3);
+  font-size: 70px;
+  @include grid-span(1, 4);
+
+  @include breakpoint($tablet) {
+    @include grid-span(2, 4);
+  }
+
+  @include responsive-repeat($laptop, $desktop, $modern) {
+    @include grid-span(3, 3);
+  }
 }
 

@@ -1,5 +1,4 @@
 .post {
-  @include grid-span(5, 2);
   transition: transform $speed $easing;
   transform: translateX(0);
   padding-bottom: 100px;
@@ -15,16 +14,39 @@
   }
 
   pre {
-    @include grid-span(5, 0, 3);
     background: $gray-light;
     padding: 20px;
     font-size: 20px;
   }
 }
 
+.post-header {
+  @include isolation-span(1, 4, 'left', $gutter: 0);
+
+  @include breakpoint($tablet) {
+    @include grid-span(2, 4, $gutter: 0);
+  }
+
+  @include responsive-repeat($laptop,$desktop, $modern) {
+    @include grid-span(3, 3);
+  }
+
+  transition: opacity $speed $easing;
+  opacity: 1;
+}
+
 .post-left {
-  @include grid-span(1, 1, 5);
-  clear: left;
+  @include isolation-span(1, 4, 'left', $gutter: 0);
+
+  @include breakpoint($tablet) {
+    @include grid-span(1, 3, $gutter: 0);
+    padding-right: 10px;
+  }
+
+  @include responsive-repeat($laptop, $desktop, $modern) {
+    @include grid-span(1, 2);
+  }
+
   transition: opacity $speed $easing;
 }
 
@@ -36,43 +58,94 @@
 }
 
 .post-content {
-  @include grid-span(3, 2, 5);
+  @include isolation-span(1, 4, 'left', $gutter: 0);
+
+  @include breakpoint($tablet) {
+    @include isolation-span(2, 4, 'both', $gutter: 0);
+
+    img {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include responsive-repeat($laptop, $desktop, $modern) {
+    @include isolation-span(3, 3, 'both', $gutter: 0);
+  }
+
 
   img.left {
-    @include float-span(2, 0, 3);
-    margin-left: - grid-span(1, 1, 3);
-    margin-right: 40px;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    @include isolation-span(1, 1, 'both', 1, $gutter: 0);
+
+    @include breakpoint($tablet) {
+      @include isolation-span(2, 0, 'both', $grid: 2, $gutter: 0);
+      margin-right: 20px;
+    }
+
+    @include breakpoint($laptop) {
+      @include isolation-span(2, 0, 'both', $grid: 3, $gutter: 0);
+      margin-right: 20px;
+    }
   }
 
   img.right {
-    float: right;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    margin-right: - grid-span(1, 1, 3);
-    margin-left: 40px;
-    width: grid-span(2, 1, 3) - gutter-span(1 / 8);
+    @include isolation-span(1, 1, 'both', 1, $gutter: 0, $from: 'right');
+
+    @include breakpoint($tablet) {
+      @include isolation-span(2, 0, 'both', $grid: 2, $gutter: 0, $from: 'right');
+      margin-left: 20px;
+    }
+
+    @include breakpoint($laptop) {
+      @include isolation-span(2, 0, 'both', $grid: 3, $gutter: 0, $from: 'right');
+      margin-left: 20px;
+    }
   }
 
   img.wide {
-    margin-bottom: 20px;
-    margin-left: - grid-span(1, 1, 3);
-    margin-top: 10px;
-    width: grid-span(5, 1, 3) - gutter-span(1 / 8);
+    @include isolation-span(1, 2, 'both', 1, $gutter: 0);
+    width: 100% / 8 * 10;
+    margin-left: - 100% / 8;
+
+    @include breakpoint($tablet) {
+      @include isolation-span(3, 0, 'both', $grid: 2, $gutter: 0);
+      margin-right: - 100% / 16;
+    }
+
+    @include breakpoint($laptop) {
+      @include isolation-span(4, 1, 'both', $grid: 3, $gutter: 0, $from: 'right');
+      margin-left: 0;
+    }
+
+    @include breakpoint($desktop) {
+      @include isolation-span(5, 0, 'both', $grid: 3, $gutter: 0, $from: 'right');
+      margin-left: 0;
+    }
   }
 
   img.small {
-    margin-bottom: 20px;
-    margin-top: 10px;
-    width: grid-span(3, 1, 3) - gutter-span(1 / 8);
+    @include isolation-span(1, 1, 'both', 1, $gutter: 0);
+
+    @include breakpoint($tablet) {
+      @include isolation-span(2, 1, 'both', $grid: 2, $gutter: 0);
+    }
+
+    @include breakpoint($laptop) {
+      @include isolation-span(3, 1, 'both', $grid: 3, $gutter: 0);
+    }
   }
 
   img.tiny {
-    margin-bottom: 20px;
-    margin-top: 10px;
-    @include grid-span(1, 2, 3);
-    margin-right: grid-span(1, 1, 3);
+    @include isolation-span(1, 1, 'both', 1, $gutter: 0);
+
+    @include breakpoint($tablet) {
+      @include isolation-span(1, 1, 'both', $grid: 2, $gutter: 0);
+      margin-right: 20px;
+    }
+
+    @include breakpoint($laptop) {
+      @include isolation-span(1, 2, 'both', $grid: 3, $gutter: 0);
+      margin-right: 6000px;
+    }
   }
 
   > *:not(.post-image) {
@@ -89,20 +162,25 @@
     line-height: 32px;
   }
 
+  @include breakpoint(max-width $tablet) {
+    p {
+      @include clearfix;
+    }
+  }
+
   p:nth-child(2) {
-    font-size: 36px;
     margin-top: 0;
     font-family: Aaux ProThin;
     padding-left: 20px;
-    line-height: 46px;
+    line-height: 38px;
+    font-size: 28px;
     border-left: 2px solid $gray-light;
-  }
-}
 
-.post-header {
-  @include grid-span(3, 2, 5);
-  transition: opacity $speed $easing;
-  opacity: 1;
+    @include breakpoint($desktop) {
+      line-height: 46px;
+      font-size: 36px;
+    }
+  }
 }
 
 .post-title {
@@ -120,8 +198,27 @@
 }
 
 .post-image {
-  @include isolation-span($Span: 2, $Location: 0, $grid: 3, $from: 'right');
-  margin-left: 20px;
+  @include isolation-span(1, 1, 'right', 1, $from: 'right');
+  width: 100% / 8 * 10;
+  margin-left: - 100% / 8;
+
+  @include breakpoint($tablet) {
+    @include isolation-span(1, 1, 'right', 2, $from: 'right');
+    width: 50% / 8 * 5;
+    margin-right: - 50% / 8;
+    margin-left: 20px !important;
+  }
+
+  @include breakpoint($laptop) {
+    @include isolation-span(1, 1, 'right', 3, $from: 'right');
+    width: 33.333% / 8 * 9;
+    margin-right: - 33.333% / 8;
+  }
+
+  @include responsive-repeat($desktop, $modern) {
+    @include isolation-span(2, 0, 'right', 3, $from: 'right');
+  }
+
   margin-bottom: 20px;
   transition: all $speed $easing;
   height: 400px;

@@ -1,7 +1,16 @@
 .sidebar-left {
   transition: opacity $speed $easing;
-  @include grid-span(1, 2);
-  clear: both;
+
+  @include isolation-span(1, 4, $clear: 'left');
+
+  @include breakpoint($tablet) {
+    @include isolation-span(1, 3, $clear: 'left');
+  }
+
+  @include responsive-repeat($laptop, $desktop, $modern) {
+    @include isolation-span(1, 2, $clear: 'left');
+  }
+
   opacity: 1;
 }
 

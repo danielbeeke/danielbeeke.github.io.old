@@ -1,14 +1,33 @@
 .card-overview {
-  @include grid-span(4, 3);
   @include clearfix;
   transition: all $speed $easing;
 
-  .padder {
-    @include float-span(1, 1, 4);
+  @include isolation-span(1, 4, 'left');
 
-    &.last {
-      margin-right: 0;
+  @include breakpoint($tablet) {
+    @include grid-span(2, 4);
+    .padder {
+      @include float-span(1, 1, 2);
     }
+  }
+
+  @include breakpoint($laptop) {
+    @include grid-span(3, 3);
+    .padder {
+      @include float-span(1, 1, 3);
+    }
+  }
+
+  @include responsive-repeat($desktop, $modern) {
+    @include grid-span(4, 3);
+    .padder {
+      @include float-span(1, 1, 4);
+    }
+  }
+
+
+  .padder.last {
+    margin-right: 0;
   }
 
   &.transition-in {
