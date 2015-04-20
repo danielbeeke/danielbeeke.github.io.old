@@ -9,21 +9,22 @@ $(function() {
     var cardsInRow = Math.floor(($('.card-overview').width() + margin) / (firstCard.outerWidth()))
     var rowsInGrid = Math.floor(($('.card-overview').height() + margin) / (firstCard.outerHeight()))
 
-    $('.padder.last').removeClass('last')
-
     var visibleCounter = 0
 
 
-    $.each($('.card-overview .padder.visible .card'), function (delta, card) {
+    $.each($('.card-overview .padder .card'), function (delta, card) {
       if ($(card).parent().hasClass('visible')) {
 
-        if ((visibleCounter % cardsInRow) + 1 === cardsInRow) {
-          $(card).parent().addClass('last')
-        }
+        $(card).parent().attr('data-counter', ((visibleCounter % cardsInRow) + 1))
 
         visibleCounter++
       }
+      else {
+        $(card).parent().removeAttr('data-counter')
+      }
+    })
 
+    $.each($('.card-overview .padder.visible .card'), function (delta, card) {
       var cardIndex = delta + 1
       var rowIndex = Math.floor(delta / cardsInRow) + 1
       var cardsInLastRow = cardsInRow - ((cardsInRow * rowsInGrid) - totalCards)
