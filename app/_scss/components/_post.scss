@@ -184,7 +184,10 @@
 }
 
 .post-title {
-  font-size: 70px;
+  font-size: 50px;
+  @include breakpoint($tablet) {
+    font-size: 70px;
+  }
 }
 
 .post-tags-wrapper {

@@ -9,8 +9,9 @@
     @include grid-span(1, 2);
   }
 
-  margin-top: 72px;
-  width: 40px;
+  padding: 20px;
+  margin-top: 60px;
+  width: 80px !important;
   z-index: 4;
   position: relative;
   transition: opacity $speed $easing;
