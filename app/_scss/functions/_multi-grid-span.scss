@@ -12,4 +12,8 @@
   @include breakpoint($desktop) {
     @include isolation-span($Span, $Location, $clear, $grid, $gutter, $gutter-style, $from);
   }
+
+  @include breakpoint($modern) {
+    @include isolation-span($Span, $Location, $clear, $grid, $gutter, $gutter-style, $from);
+  }
 }
