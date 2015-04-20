@@ -3,7 +3,8 @@ $(function() {
 
   window.setItemsInARowClass = function() {
     var firstCard = $('.padder.visible:first')
-    var margin = parseInt(firstCard.css('margin-right'))
+    var marginPx = firstCard.css('padding-right')
+    var margin = parseInt(marginPx)
     var totalCards = $('.card-overview .padder.visible').length
     var cardsInRow = Math.floor(($('.card-overview').width() + margin) / (firstCard.outerWidth()))
     var rowsInGrid = Math.floor(($('.card-overview').height() + margin) / (firstCard.outerHeight()))
@@ -11,6 +12,7 @@ $(function() {
     $('.padder.last').removeClass('last')
 
     var visibleCounter = 0
+
 
     $.each($('.card-overview .padder.visible .card'), function (delta, card) {
       if ($(card).parent().hasClass('visible')) {

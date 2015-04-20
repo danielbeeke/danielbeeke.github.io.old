@@ -1,8 +1,11 @@
 .card-overview {
   @include clearfix;
   transition: all $speed $easing;
-
   @include isolation-span(1, 4, 'left');
+
+  .padder {
+    @include clearfix;
+  }
 
   @include breakpoint($tablet) {
     @include grid-span(2, 4);
@@ -24,7 +27,6 @@
       @include float-span(1, 1, 4);
     }
   }
-
 
   .padder.last {
     margin-right: 0;

@@ -1,19 +1,21 @@
 .padder {
   position: relative;
-  margin-bottom: 10px;
   transition: opacity $speed $easing;
+  margin-bottom: 30px;
+
+  @include breakpoint($tablet) {
+    margin-bottom: 10px;
+  }
 
   &.hidden {
     overflow: hidden;
     padding-bottom: 0;
     opacity: 0;
-    max-height: 0;
     margin-top: 0;
   }
 
   &.visible {
     opacity: 1;
-    max-height: 400px;
   }
 }
 
@@ -167,58 +169,60 @@
     }
   }
 
-  &.is-clicked,
-  &:hover {
-    z-index: 5;
-    transition: transform $speed $easing,
-                z-index 0s 0s,
-                opacity $speed $easing;
-
-    &:before, &:after {
-      opacity: .7;
-      transition: opacity $speed $easing,
-                  z-index $speed 0s,
-                  transform $speed $easing,
-                  height $speed $easing,
-                  width $speed $easing;
-    }
-
-    &:before {
-      width: 200%;
-    }
-
-    &:after {
-      height: 190%;
-      transform: translate(-50%, -40%);
-    }
-
-
-    .blog-item-link {
+  @include breakpoint($tablet) {
+    &.is-clicked,
+    &:hover {
+      z-index: 5;
       transition: transform $speed $easing,
-                  border $speed $easing,
                   z-index 0s 0s,
                   opacity $speed $easing;
-      opacity: 1 !important;
-      transform: scale(1.36) translateY(27px);
-      z-index: 4;
-    }
-  }
 
-  &.is-clicked {
-    &:before, &:after,
-    .blog-item-link:after,
-    .post-date-wrapper,
-    .blog-item-tags-wrapper,
-    .blog-item-title-wrapper {
-      opacity: 0;
+      &:before, &:after {
+        opacity: .7;
+        transition: opacity $speed $easing,
+                    z-index $speed 0s,
+                    transform $speed $easing,
+                    height $speed $easing,
+                    width $speed $easing;
+      }
+
+      &:before {
+        width: 200%;
+      }
+
+      &:after {
+        height: 190%;
+        transform: translate(-50%, -40%);
+      }
+
+
+      .blog-item-link {
+        transition: transform $speed $easing,
+                    border $speed $easing,
+                    z-index 0s 0s,
+                    opacity $speed $easing;
+        opacity: 1 !important;
+        transform: scale(1.36) translateY(27px);
+        z-index: 4;
+      }
     }
 
-    .blog-item-link {
-      transform: scale(1) translateY(0);
-    }
+    &.is-clicked {
+      &:before, &:after,
+      .blog-item-link:after,
+      .post-date-wrapper,
+      .blog-item-tags-wrapper,
+      .blog-item-title-wrapper {
+        opacity: 0;
+      }
 
-    .blog-item-background:after {
-      opacity: 1;
+      .blog-item-link {
+        transform: scale(1) translateY(0);
+      }
+
+      .blog-item-background:after {
+        opacity: 1;
+      }
     }
   }
 }
