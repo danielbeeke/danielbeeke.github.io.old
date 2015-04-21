@@ -8,6 +8,8 @@ $(function() {
   var debounce
 
   $('.search-field').on('change keyup', function () {
+    $('.search-wrapper').addClass('is-searching')
+
     var searchString = $('.search-field').val()
     if (searchString) {
       $('.search-field').addClass('has-value')
@@ -25,8 +27,6 @@ $(function() {
 
   function searchSite() {
     var searchString = $('.search-field').val()
-
-    $('.search-wrapper').addClass('is-searching')
 
     var url = 'https://api.github.com/search/code?q=' + searchString + '+in:file+repo:danielbeeke/danielbeeke.github.io+extension:md'
 
