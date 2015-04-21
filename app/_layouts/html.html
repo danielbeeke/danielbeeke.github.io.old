@@ -9,9 +9,11 @@
         {% if page.image %}
             <meta property="og:url" content="http://www.danielbeeke.nl{{ page.url }}" />
             <meta property="og:image" content="http://www.danielbeeke.nl/img/{{ page.image }}" />
+            <meta property="og:description" content="{{ page.excerpt | strip_html }}" />
         {% else %}
             <meta property="og:url" content="http://www.danielbeeke.nl" />
             <meta property="og:image" content="http://www.danielbeeke.nl/img/me.jpg" />
+            <meta property="og:description" content="A programmer with a thirst for inventions and tricks. Mostly working with Drupal." />
         {% endif %}
 
         <title>{{ page.title }}</title>
