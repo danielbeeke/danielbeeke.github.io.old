@@ -30,6 +30,9 @@ $(function() {
 
       $.each(categories, function (delta, category) {
         $('[data-tag="' + category + '"]').addClass('active')
+        setTimeout(function () {
+          $('[data-tag="' + category + '"]').addClass('clicked')
+        }, 400)
       })
     }
 
@@ -42,7 +45,7 @@ $(function() {
     }
 
     if (categories.length) {
-      $('.clear-filters').removeClass('hidden')
+      $('.clear-filters').addClass('visible')
       if (!window.location.hash) {
         window.location.hash = categories.join('+')
       }
@@ -53,7 +56,7 @@ $(function() {
       })
     }
     else {
-      $('.clear-filters').addClass('hidden')
+      $('.clear-filters').removeClass('visible')
       $.each($('.card'), function (cardDelta, card) {
         itemsToSetActiveByFilter.push(card)
       })

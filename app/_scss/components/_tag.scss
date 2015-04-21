@@ -39,13 +39,20 @@
 
 .clear-filters {
   float: left !important;
+  cursor: default;
+  background: $gray-light;
 
-  &.hidden {
-    cursor: default;
-    background: $gray-light;
+  @include breakpoint($tablet) {
+    opacity: 0;
+  }
 
-    @include breakpoint($tablet) {
-      opacity: 0;
+  &.visible {
+    background: $gray;
+    cursor: pointer;
+    opacity: 1;
+
+    &:hover {
+      background: $black;
     }
   }
 }
