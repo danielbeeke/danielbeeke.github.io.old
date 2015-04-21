@@ -6,7 +6,7 @@
   .site-author {
     transition: opacity $speed $easing;
     opacity: 1;
-    margin-top: 4px;
+    margin-top: -5px;
 
     h1 {
       margin-top: 0;
@@ -175,6 +175,19 @@
     line-height: 38px;
     font-size: 28px;
     border-left: 2px solid $gray-light;
+    position: relative;
+    margin-top: -9px;
+
+    &:after {
+      top: 0;
+      left: -2px;
+      content: '';
+      width: 2px;
+      height: 9px;
+      background: white;
+      display: block;
+      position: absolute;
+    }
 
     @include breakpoint($desktop) {
       line-height: 46px;

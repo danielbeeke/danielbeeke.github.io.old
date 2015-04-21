@@ -7,6 +7,11 @@ layout: html
 <div class="sidebar-left transition-in">
   {% include author.html title="About me" %}
 
+  <div class="search-wrapper">
+    <input type="text" placeholder="Search the blog…" class="search-field">
+    <div class="search-icon"></div>
+  </div>
+
   <div class="card-filters">
     {% for category in site.categories %}
       <a href="#" class="tag" data-tag="{{ category[0] | replace: ' ', '-' }}">{{ category[0] }}</a>

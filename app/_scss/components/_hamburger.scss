@@ -11,10 +11,26 @@
 
   padding: 20px;
   margin-top: 60px;
-  width: 80px !important;
+  width: 50px !important;
   z-index: 4;
   position: relative;
   transition: opacity $speed $easing;
+
+  &:after {
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.4);
+    content: '';
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: $gray-light;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: all $speed $easing;
+  }
 
   .bar {
     width: 40px;
@@ -29,7 +45,7 @@
 
   &:hover {
     .bar:nth-child(1) {
-      transform: rotate(-45deg);
+      transform: translateX(-4px) rotate(-45deg);
     }
 
     .bar:nth-child(2) {
@@ -37,11 +53,32 @@
     }
 
     .bar:nth-child(3) {
-      transform: rotate(45deg);
+      transform: translateX(-4px) rotate(45deg);
     }
   }
 
   &.fade-out {
+    &:after {
+      animation: back_flip $speed $easing 0s 1;
+    }
+
+    opacity: 0;
+  }
+}
+
+@keyframes back_flip {
+  0% {
+    transform: translate(-50%, -50%) scale(.4);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
     opacity: 0;
   }
 }
