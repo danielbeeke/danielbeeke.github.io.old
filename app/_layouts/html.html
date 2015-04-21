@@ -1,8 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <meta property="og:title" content="{{ page.title }}" />
+        <meta property="og:type" content="article" />
+        {% if page.image %}
+            <meta property="og:url" content="http://danielbeeke.nl{{ page.url }}" />
+            <meta property="og:image" content="http://danielbeeke.nl/img/{{ page.image }}" />
+        {% else %}
+            <meta property="og:url" content="http://danielbeeke.nl" />
+            <meta property="og:image" content="http://danielbeeke.nl/img/me.jpg" />
+        {% endif %}
+
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
         {% include fontloader.html %}
