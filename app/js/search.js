@@ -31,7 +31,7 @@ $(function() {
     var url = 'https://api.github.com/search/code?q=' + searchString + '+in:file+repo:danielbeeke/danielbeeke.github.io+extension:md'
 
     $.ajax({
-      dataType: "json",
+      dataType: 'json',
       url: url,
       headers: {
         // This is used to go around the rate limit for anon users.
@@ -46,7 +46,7 @@ $(function() {
           var pathSplitted = item.path.split('/')
 
           // We are only interested in posts.
-          if (pathSplitted[1] == '_posts') {
+          if (pathSplitted[1] === '_posts') {
             pathSplitted.splice(0, 1)
             var id = pathSplitted.join('/')
 
@@ -62,7 +62,7 @@ $(function() {
   function make_base_auth(user, password) {
     var tok = user + ':' + password;
     var hash = btoa(unescape(encodeURIComponent(tok)));
-    return "Basic " + hash;
+    return 'Basic ' + hash;
   }
 
 });
