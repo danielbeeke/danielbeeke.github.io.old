@@ -11,13 +11,15 @@ $(function() {
     }
   })
 
-  $('.hamburger-menu').on('click', function () {
+  $('.hamburger-menu, .post .tag').on('click', function () {
     var that = this
     $('.post').addClass('transition-post-out').one('transitionend', function () {
       window.location = $(that).attr('href')
     })
 
-    $(that).addClass('fade-out')
+    $('.hamburger-menu').addClass('fade-out')
+
+    $(this).addClass('clicked')
 
     return false
   })

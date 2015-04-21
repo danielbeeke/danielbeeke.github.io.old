@@ -7,8 +7,39 @@
   float: left;
   text-decoration: none;
   transition: all $speed $easing;
+  position: relative;
 
   &.active, &:hover {
     background: $black;
+  }
+
+
+  &:after {
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.4);
+    content: '';
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: $gray-light;
+    display: block;
+    position: absolute;
+    opacity: 0;
+    transition: all $speed $easing;
+  }
+
+  &.clicked {
+    &:after {
+      animation: back_flip $speed $easing 0s 1;
+    }
+  }
+}
+
+.clear-filters {
+  &.hidden {
+    cursor: default;
+    background: $gray-light;
   }
 }

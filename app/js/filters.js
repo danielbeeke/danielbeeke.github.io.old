@@ -3,7 +3,7 @@ $(function() {
 
   $('.card-filters .tag').on('click', function () {
     $(this).toggleClass('active')
-
+    window.location.hash = ''
     $('.card-overview').addClass('transition-in').addClass('transition-in-prepare')
 
     setTimeout(function () {
@@ -13,21 +13,47 @@ $(function() {
     return false
   })
 
+  $('.clear-filters').on('click', function () {
+    $('.tag.active').removeClass('active')
+    return false
+  })
+
   window.setFilters = function() {
     var itemsToSetActiveByFilter = []
     var itemsToSetActiveBySearch = []
     var itemsToSetActive = []
+    var categories = []
+
+    if (window.location.hash) {
+      var hash = window.location.hash.substr(1)
+      categories = hash.split('+')
+
+      $.each(categories, function (delta, category) {
+        $('[data-tag="' + category + '"]').addClass('active')
+      })
+    }
 
     $('.card').parent().addClass('hidden').removeClass('visible')
 
     if ($('.card-filters .tag.active').length) {
       $.each($('.card-filters .tag.active'), function (delta, category) {
-        $.each($('.card.' + $(category).attr('data-tag')), function (cardDelta, card) {
+        categories.push($(category).attr('data-tag'))
+      })
+    }
+
+    if (categories.length) {
+      $('.clear-filters').removeClass('hidden')
+      if (!window.location.hash) {
+        window.location.hash = categories.join('+')
+      }
+      $.each(categories, function (delta, category) {
+        $.each($('.card.' + category), function (cardDelta, card) {
           itemsToSetActiveByFilter.push(card)
         })
       })
     }
     else {
+      $('.clear-filters').addClass('hidden')
       $.each($('.card'), function (cardDelta, card) {
         itemsToSetActiveByFilter.push(card)
       })

@@ -27,7 +27,7 @@ layout: html
 
     <span class="post-tags-wrapper">
       {% for category in page.categories %}
-        <span class="tag" style="background-color: #{{ page.color }}">{{ category }}</span>
+        <a href="/#{{ category }}" class="tag" style="background-color: #{{ page.color }}">{{ category }}</a>
       {% endfor %}
     </span>
   </div>
