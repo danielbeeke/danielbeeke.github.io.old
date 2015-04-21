@@ -196,8 +196,8 @@ module.exports = function (grunt) {
         options: {
           collapseWhitespace: true,
           collapseBooleanAttributes: true,
-          removeAttributeQuotes: true,
-          removeRedundantAttributes: true
+          removeAttributeQuotes: false,
+          removeRedundantAttributes: false
         },
         files: [{
           expand: true,
