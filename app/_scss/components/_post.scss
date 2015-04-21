@@ -210,6 +210,10 @@
   .tag {
     float: left;
     margin: 3px;
+
+    &:hover {
+      opacity: .6;
+    }
   }
 }
 

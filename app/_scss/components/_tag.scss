@@ -38,8 +38,14 @@
 }
 
 .clear-filters {
+  float: left !important;
+
   &.hidden {
     cursor: default;
     background: $gray-light;
+
+    @include breakpoint($tablet) {
+      opacity: 0;
+    }
   }
 }

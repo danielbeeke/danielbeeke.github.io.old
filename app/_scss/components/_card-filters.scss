@@ -14,7 +14,7 @@
     @include breakpoint($tablet) {
       margin: 2px 0;
       float: right;
-      clear: both;
+      clear: right;
     }
   }
 }
