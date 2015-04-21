@@ -1,6 +1,6 @@
 <div class="padder">
 <article data-id="{{ post.path }}" class="card blog-item {% for category in post.categories %}{{ category | replace: ' ', '-' }} {% endfor %}">
-  <a class="blog-item-link" href="{{ post.url | prepend: site.baseurl }}">
+  <a class="blog-item-link" href="{{ post.url }}">
   <div class="blog-item-background" style="background-image: url(/img/{{ post.image }});"></div>
     <span class="blog-item-title-wrapper">
       <h1 class="blog-item-title">{{ post.title }}</h1>
