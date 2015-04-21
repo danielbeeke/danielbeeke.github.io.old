@@ -177,7 +177,15 @@ module.exports = function (grunt) {
     },
     usemin: {
       options: {
-        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/img']
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/img'],
+        patterns: {
+          html: [
+            [
+                /http:\/\/www\.danielbeeke\.nl([^"']+\.(png|jpg|gif))/gm,
+                'Update meta tags image content'
+            ]
+          ]
+        }
       },
       html: ['<%= yeoman.dist %>/**/*.html'],
       css: ['<%= yeoman.dist %>/css/**/*.css']
