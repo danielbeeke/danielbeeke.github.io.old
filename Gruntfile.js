@@ -179,7 +179,7 @@ module.exports = function (grunt) {
       options: {
         assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/img'],
         patterns: {
-          html: [
+          metatagscustom: [
             [
                 /http:\/\/www\.danielbeeke\.nl([^"']+\.(png|jpg|gif))/gm,
                 'Update meta tags image content'
