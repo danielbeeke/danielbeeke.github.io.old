@@ -1,5 +1,5 @@
 ---
-title:  "Drupal 8"
+title:  "Our experience with Drupal 8 so far"
 categories:
 - Drupal 8
 - Beta
