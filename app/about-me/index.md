@@ -3,6 +3,7 @@ layout: post
 title: About me
 image: me.jpg
 color: 04629f
+comments: false
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi condimentum, magna eu tempus convallis, nibh lacus sodales felis, quis laoreet nisi massa ac turpis. Donec ultricies tempor metus, et condimentum quam. Aliquam mattis et turpis in pharetra.
