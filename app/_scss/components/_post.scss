@@ -160,6 +160,8 @@
   p {
     font-size: 22px;
     line-height: 32px;
+    color: $gray-dark;
+    margin-top: 20px;
   }
 
   @include breakpoint(max-width $tablet) {

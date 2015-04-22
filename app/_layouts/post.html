@@ -1,6 +1,12 @@
 ---
 layout: html
 ---
+<style type="text/css">
+  .post-content h1, h2, h3, h4, h5, h6 {
+    color: #{{ page.color }};
+  }
+</style>
+
 <a class="hamburger-menu" href="/">
   <div class="bar"></div>
   <div class="bar"></div>
@@ -20,6 +26,7 @@ layout: html
 
     {{ content }}
 
+    {% include disqus.html %}
   </article>
 
   <div class="post-left">
@@ -31,5 +38,6 @@ layout: html
       {% endfor %}
     </span>
   </div>
+
 
 </div>

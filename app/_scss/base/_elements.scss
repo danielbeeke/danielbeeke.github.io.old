@@ -27,8 +27,34 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 100;
 }
 
-article h1 {
-  font-size: 30px;
+article {
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 40px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-weight: bold;
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    font-size: 22px;
+    line-height: 32px;
+    padding-left: 20px;
+    color: $gray-dark;
+  }
 }
 
 
@@ -38,5 +64,10 @@ article h1 {
 }
 
 a {
-  color: $black;
+  color: $gray-dark;
+  transition: all $speed $easing;
+
+  &:hover {
+    color: $black;
+  }
 }
