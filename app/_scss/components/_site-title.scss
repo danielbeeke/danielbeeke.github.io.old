@@ -1,6 +1,6 @@
 .site-title {
   font-size: 50px;
-  @include grid-span(1, 4);
+  @include grid-span(1, 4, $gutter: 0);
   margin-bottom: 10px;
   margin-top: 50px;
 
@@ -10,7 +10,7 @@
   }
 
   @include breakpoint($tablet) {
-    @include grid-span(2, 4);
+    @include grid-span(2, 4, $gutter: 0);
     font-size: 70px;
     margin-bottom: 46px;
 
@@ -21,7 +21,7 @@
   }
 
   @include responsive-repeat($laptop, $desktop, $modern) {
-    @include grid-span(3, 3);
+    @include grid-span(3, 3, $gutter: 0);
   }
 }
 

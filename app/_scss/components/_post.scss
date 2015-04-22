@@ -28,7 +28,7 @@
   }
 
   @include responsive-repeat($laptop,$desktop, $modern) {
-    @include grid-span(3, 3);
+    @include grid-span(3, 3, $gutter: 0);
   }
 
   transition: opacity $speed $easing;
@@ -203,6 +203,7 @@
 
 .post-title {
   font-size: 50px;
+  margin-left: -4px;
   @include breakpoint($tablet) {
     font-size: 70px;
   }
