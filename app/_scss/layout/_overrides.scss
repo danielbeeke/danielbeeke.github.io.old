@@ -1,0 +1,10 @@
+body.about-me {
+  .author-image,
+  .about-me-link .fake-link {
+    display: none;
+  }
+
+  .about-me-link {
+    cursor: default;
+  }
+}

@@ -2,12 +2,16 @@ $(function() {
   'use strict';
 
   $('.search-icon').on('click', function () {
-    $('.search-field').val('').change()
+    $('.search-field').val('')
+    $('.search-wrapper').removeClass('is-searching')
+    $('.search-field').removeClass('has-value')
+    window.searchResults = []
+    setFilters()
   })
 
   var debounce
 
-  $('.search-field').on('change keyup', function () {
+  $('.search-field').on('keyup', function () {
     $('.search-wrapper').addClass('is-searching')
 
     var searchString = $('.search-field').val()

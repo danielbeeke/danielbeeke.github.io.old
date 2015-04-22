@@ -44,7 +44,10 @@ $(function() {
     }, 100)
   }
 
-  setFilters()
-  setItemsInARowClass()
+  if ($('body').hasClass('index.html')) {
+    setFilters()
+    setItemsInARowClass()
+  }
+
   removeTransitionClasses()
 });

@@ -19,9 +19,9 @@
 .search-field + .search-icon {
   position: absolute;
   top: 7px;
-  right: 5px;
-  width: 40px;
-  height: 40px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
   transition: all $speed $easing;
 
   &:before {
@@ -32,7 +32,7 @@
     width: 3px;
     background: $gray;
     top: 0;
-    right: 0;
+    right: 20px;
     transform: translate(0px, 13px) rotate(-45deg);
     transition: all $speed $easing;
     z-index: 1;
@@ -48,7 +48,7 @@
     border: 3px solid $gray;
     background: white;
     top: 0;
-    right: 0;
+    right: 20px;
     transform: translate(0, 0) rotate(45deg);
     transition: all $speed $easing;
   }

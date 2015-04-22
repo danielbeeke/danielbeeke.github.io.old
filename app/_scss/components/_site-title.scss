@@ -2,7 +2,6 @@
   font-size: 50px;
   @include grid-span(1, 4);
   margin-bottom: 10px;
-  text-align: center;
   margin-top: 50px;
 
   span.name {
@@ -13,7 +12,6 @@
   @include breakpoint($tablet) {
     @include grid-span(2, 4);
     font-size: 70px;
-    text-align: left;
     margin-bottom: 46px;
 
     span.name {

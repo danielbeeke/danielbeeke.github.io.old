@@ -1,0 +1,11 @@
+.transition-photo {
+  position: fixed;
+  transition: all ($speed * 1.5) $easing;
+  opacity: 0;
+  transform: translate(0, 0);
+
+  &.show {
+    border-radius: 0;
+    opacity: 1;
+  }
+}
