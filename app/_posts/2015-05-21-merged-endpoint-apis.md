@@ -1,5 +1,5 @@
 ---
-title:  "Merged endpoint API's, an idea."
+title:  "Merged endpoint API's"
 categories: development API
 image: apis.jpg
 color: c9ac37
