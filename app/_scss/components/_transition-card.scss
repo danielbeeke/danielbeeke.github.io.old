@@ -2,11 +2,16 @@
   background-size: cover;
   background-position: center center;
   position: fixed;
-  z-index: 20;
+  z-index: 30;
   opacity: 0;
   transition: all $speed $easing;
 
   &.show {
     opacity: 1;
   }
+
+  &.popup {
+    opacity: 1;
+  }
 }
+

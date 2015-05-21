@@ -5,9 +5,10 @@ categories:
 - Beta
 image: drupal.jpg
 color: 2466ab
+published: true
 ---
 
-At Studio Fonkel we are building our first Drupal 8 site for a customer. We started with beta 7 and are enjoying it a lot. Let us talk about the nice and the ugly things of Drupal 8.
+At [Studio Fonkel](http://studiofonkel.nl) we are building our first Drupal 8 site for a customer. We started with beta 7 and are enjoying it a lot. Let us talk about the nice and the ugly things of Drupal 8.
 
 ## The nice
 
@@ -19,7 +20,7 @@ See [File system based workflow](https://www.drupal.org/node/2416555) & [Changin
 
 ### Views in core, and a lot more in core
 
-All the core content overviews are views, customizations are very simple now. A lot more is in core, for this site we used the following contributed modules: devel, ds, entity_reference_revisions, layout_plugin and paragraphs.
+All the core content overviews are views, customizations are very simple now. A lot more is in core, for this site we used the following contributed modules: [devel](https://www.drupal.org/project/devel), [ds](https://www.drupal.org/project/ds), [entity reference revisions](https://www.drupal.org/project/entity_reference_revisions) and [paragraphs](http://drupal.org/project/paragraphs).
 
 Good things that are now in core are:
 

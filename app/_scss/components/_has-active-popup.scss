@@ -1,0 +1,27 @@
+html {
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    pointer-events: none;
+    z-index: 20;
+    position: fixed;
+    opacity: 0;
+    transition: opacity $speed $easing 0s, background $speed $easing 0s;
+  }
+}
+
+.has-active-popup {
+  &:after {
+    transition: opacity $speed $easing $speed, background $speed $easing $speed;
+    opacity: .9;
+    pointer-events: auto;
+  }
+}

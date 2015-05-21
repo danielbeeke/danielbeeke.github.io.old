@@ -1,0 +1,41 @@
+.close-popup {
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  right: 40px;
+  top: 40px;
+  z-index: 40;
+  cursor: pointer;
+  opacity: 0;
+  transition: all $speed $easing;
+  transform: scale(1);
+  transform-origin: center center;
+  padding: 10px;
+
+  &:before, &:after {
+    position: absolute;
+    top: 17px;
+    left: 0;
+    content: '';
+    display: block;
+    height: 5px;
+    width: 40px;
+    background: $black;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+
+  &.show {
+    opacity: 1;
+  }
+
+  &:hover {
+    transform: scale(1.6);
+  }
+}

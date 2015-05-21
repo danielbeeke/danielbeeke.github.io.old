@@ -13,7 +13,7 @@ body {
     z-index: 1001;
     position: fixed;
     opacity: 0;
-    transition: $speed $easing;
+    transition: opacity $speed $easing $speed, background $speed $easing $speed;
   }
 
   &.has-grid-overlay-enabled:after {

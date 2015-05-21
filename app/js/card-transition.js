@@ -1,5 +1,5 @@
 $(function() {
-  $('.card').on('click', function () {
+  $('.card.blog-item').on('click', function () {
     var that = this
     $(this).addClass('is-clicked')
     $('html').addClass('has-active-card')
@@ -23,7 +23,7 @@ $(function() {
     var newLeft = $('.fifth-grid-start-tester').offset().left
 
     $('body > *:not(.transition-card)').addClass('transition-out-prepare')
-    $('body').append('<h1 class="post-title title-height-tester">' + $('.blog-item-title', that).text() + '</h1>')
+    $('body').append('<h1 class="post-title title-height-tester">' + $('.blog-item-title:first', that).text() + '</h1>')
 
     var newTitleHeight = $('.title-height-tester').outerHeight()
     $('.title-height-tester').remove()

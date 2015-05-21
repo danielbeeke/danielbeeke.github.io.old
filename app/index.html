@@ -22,6 +22,10 @@ title: Daniel Beeke
 
 <div class="card-overview transition-in transition-in-prepare">
   {% for post in site.posts %}
-    {% include card.html %}
+    {% if post.popup == true %}
+      {% include card-popup.html %}
+    {% else %}
+      {% include card.html %}
+    {% endif %}
   {% endfor %}
 </div>

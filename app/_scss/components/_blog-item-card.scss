@@ -18,11 +18,11 @@
 
   &.visible {
     opacity: 1;
-    max-height: 700px;
+    max-height: 1600px;
   }
 }
 
-.blog-item.card {
+.card {
   width: 100%;
   padding-bottom: 130%;
   display: block;
@@ -160,6 +160,13 @@
     font-weight: 600;
   }
 
+  .glitch-fixer {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translateX(-1px);
+  }
+
   .blog-item-tags-wrapper {
     position: absolute;
     bottom: $padder;
@@ -231,7 +238,7 @@
 }
 
 .has-card-hover {
-  .blog-item.card {
+  .card {
     transition: transform $speed $easing 0s,
                 z-index 0s $speed,
                 opacity $speed $easing;

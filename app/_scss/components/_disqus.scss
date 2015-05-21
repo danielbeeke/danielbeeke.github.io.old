@@ -1,3 +1,15 @@
 #disqus_thread {
   margin-top: 100px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#disqus_thread:after {
+     content: "";
+     display: block;
+     height: 56px;
+     width: 100%;
+     position: absolute;
+     bottom: 0;
+     background: white;
 }

@@ -1,0 +1,10 @@
+.card.popup {
+  cursor: pointer;
+
+  &:hover {
+    .blog-item-tags-wrapper,
+    .post-date-wrapper {
+      opacity: 0;
+    }
+  }
+}
