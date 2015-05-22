@@ -6,7 +6,7 @@ color: c9ac37
 published: true
 ---
 
-How to create an API that is performant for mobile devices? That is a question that is bugging me for over a year.
+How to create an API that is performant for mobile devices? That is a question that is bugging me for a while.
 
 I think tools like Drupal, or angular are on a good road, but not for mobile apps. Hitting the server 20 times for 10 second of using an app, doesn't seem such a good idea to me.
 
