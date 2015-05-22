@@ -3,7 +3,7 @@ title:  "My work stack"
 categories: development linux
 image: stack.jpg
 color: 285433
-published: true
+published: false
 ---
 
 Web development takes a lot of software and servers just to get started. In this blog I will describe the stack that I am using on my daily work and also on my hobby projects.
