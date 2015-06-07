@@ -1,0 +1,75 @@
+<!DOCTYPE html><html prefix="og: http://ogp.me/ns#"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta property="og:title" content="Merged endpoint API's in depth"><meta property="og:type" content="article"><meta property="og:url" content="http://www.danielbeeke.nl/merged-endpoint-apis-in-depth/"><meta property="og:image" content="http://www.danielbeeke.nl/img/apis2.c3b1.jpg"><meta property="og:description" content="In my previous blog I wrote about merged endpoint API&#39;s. In this blog I will write about the idea behind the prototype my colleagues and I have created for a travel blog.
+"><link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-TileImage" content="/mstile-144x144.png"><meta name="theme-color" content="#ffffff"><title>Merged endpoint API's in depth</title><meta name="viewport" content="width=device-width"><script>!function(){"use strict";function e(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)}function t(e){return window.localStorage&&localStorage.font_css_cache&&localStorage.font_css_cache_file===e}function n(){if(window.localStorage&&window.XMLHttpRequest)if(t(o))c(localStorage.font_css_cache);else{var n=new XMLHttpRequest;n.open("GET",o,!0),e(n,"load",function(){4===n.readyState&&(c(n.responseText),localStorage.font_css_cache=n.responseText,localStorage.font_css_cache_file=o)}),n.send()}else{var a=document.createElement("link");a.href=o,a.rel="stylesheet",a.type="text/css",document.getElementsByTagName("head")[0].appendChild(a),document.cookie="font_css_cache"}}function c(e){var t=document.createElement("style");t.innerHTML=e,document.getElementsByTagName("head")[0].appendChild(t)}var o="/fonts/fonts.css";window.localStorage&&localStorage.font_css_cache||document.cookie.indexOf("font_css_cache")>-1?n():e(window,"load",n)}();</script><link rel="stylesheet" href="/css/main.296c.css"><script src="/js/scripts.cd48.js"></script></head><body class="merged-endpoint-apis-in-depth"><style type="text/css">.post-content h1, h2, h3, h4, h5, h6 {
+    color: #d02708;
+  }</style><a class="hamburger-menu" href="/"><div class="bar"></div><div class="bar"></div><div class="bar"></div></a><div class="post transition-in"><header class="post-header"><h1 class="post-title">Merged endpoint API's in depth</h1><p class="post-meta">May 28, 2015</p></header><article class="post-content"><div class="post-image" style="background-image: url(/img/apis2.c3b1.jpg)"></div><p>In my <a href="/merged-endpoint-apis/">previous blog</a> I wrote about merged endpoint API&#39;s. In this blog I will write about the idea behind the prototype my colleagues and I have created for a travel blog.</p><h3>The traditional REST API model</h3><p>Let&#39;s start with a traditional REST API model. Every object type has it&#39;s own endpoint. Check <a href="http://jsonapi.org/">jsonapi.org</a> for a general specification/format for REST API&#39;s. It&#39;s one of the many formats that get&#39;s implemented. Every object type get&#39;s requested seperatedly.</p><p>In the illustration below you can see how it would go if this was implemented in a SAAS travel blog. The client opens the url /journey/john-doe-in-china en the client starts to request &#39;api/journey/john-doe-in-china&#39; than it knows the location ID&#39;s, the image ID&#39;s and the comment ID&#39;s and requests those three simultaniously, when recieving the comments, it also recieves the commenter ID&#39;s and starts to request those. The client application is piecing together all the information in a couple of requests.</p><p><img src="/img/api1.7512.svg" alt="Traditional REST API implementation"></p><p>Typical responses:</p><p><em>/api/journey/17</em><pre><code>{
+  &quot;journey&#39;: [
+    {
+      &quot;name&quot;: &quot;in China&quot;,
+      &quot;id&quot;: 17,
+      &quot;introduction&quot;: &quot;Lorem ipsum dolar semit&quot;,
+      &quot;profile&quot;: 17,
+      &quot;locations&quot;: [
+        23, 45, 56, 78
+      ]
+    }
+  ]
+}
+</code></pre></p><p><em>/api/user/17</em><pre><code>{
+  &quot;user&#39;: [
+    {
+      &quot;name&quot;: &quot;John Doe&quot;,
+      &quot;id&quot;: 17
+      &quot;introduction&quot;: &quot;Lorem ipsum dolar semit&quot;,
+      &quot;is-traveling&quot;: true,
+    }
+  ]
+}
+</code></pre></p><p><em>/api/image/7</em><pre><code>{
+  &quot;image&#39;: [
+    {
+      &quot;filename&quot;: &quot;BN12345.jpg&quot;,
+      &quot;id&quot;: 7
+      &quot;filemime&quot;: &quot;application/jpeg&quot;,
+    }
+  ]
+}
+</code></pre></p><p>The traditional model has one thing that I think that just isn&#39;t right. With this type of API the client application needs to request a lot of endpoints before it has one single page fully filled with it&#39;s contents.</p><h3>The merged endpoints API</h3><p>The main idea of a merged endpoints API is to move the piecing together computation to the server. With that we win al lot of things, some good, some possibly bad.</p><ul><li>first of all less requests</li><li>no duplicate data that gets sent over the line</li><li>One (a bit longer) request</li></ul><p>Let&#39;s see how it looks like.</p><p><img src="/img/api2.1280.svg" alt="Merged endpoints REST API implementation"></p><p>Above you see the first request. Along with all the different data we get a cache token <strong>xcv45w2</strong>. The response data could look a bit like this:</p><pre><code>{
+  user: [{
+    name: 'Henk',
+    id: 12
+  }],
+  comment: [{
+    'Lorem ipsum',
+    45
+  }],
+  location: [{
+    'Lorem ipsum',
+    '23'
+  }],
+  journey: [{
+    title: 'Name'
+  }]
+}</code></pre><p>The following json object is a representation of what is in the database for the specific token: <strong>xcv45w2</strong>.</p><pre><code>{
+  user: [1, 4, 6, 9, 14, 34, 67],
+  comment: [17, 34, 233, 234, 256],
+  location: [45, 46, 47],
+  journey: [78],
+  image: [122, 123, 124, 125]
+}</code></pre><p>These are the objects that were once send over the line. These objects won&#39;t be send over the lines untill they get deleted or updated. When an object was deleted it needs to send a delete request.</p><pre><code>{
+  user: [1, 4, 6, 9, 14, 34, 67],
+  comment: [17, 34, 233, 234, 256],
+  location: [45, 46, 47],
+  journey: [78],
+  image: [122, 123, 124, 125],
+  <strong>deleted: [{
+    user: [17]
+  }]</strong>
+}</code></pre><h2>Server side logic idea for Drupal 8</h2><h3>Creation of the JSON merged endpoint entity</h3><ul><li>You create one or more views, these may have different entity types and bundles. You can use contextual filters.</li><li>You create a new config entity of the type &#39;json merged endpoint&#39; entity. You fill in the label and the path, on which the endpoint can be requested. Than you selected the views that give results to this endpoint. The path variable may hold something like %, so you can use a variable in the path url, this variable will be send to all the selected views.</li><li>You set all the display settings for the view mode &#39;JSON&#39; of those entity types that you use.</li><li>You can request the path, and the token gets sent along.</li></ul><div id="disqus_thread"></div><script type="text/javascript">/* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'danielbeeke';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();</script></article><div class="post-left"><div class="site-author"><a href="/about-me" class="about-me-link"><h1><span class="author-image" style="background-image: url('/img/me.dc93.jpg')"></span><span class="name">Daniel Beeke</span></h1><p>A programmer with a thirst for inventions. Loving music and creating things. <span class="fake-link">More about me »</span></p></a></div><span class="post-tags-wrapper"><a href="/#development" class="tag" style="background-color: #d02708">development</a> <a href="/#api" class="tag" style="background-color: #d02708">api</a></span></div></div></body></html>
