@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="600"
+   height="270"
+   id="svg3151"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="api2.svg">
+  <defs
+     id="defs3153" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="488.61268"
+     inkscape:cy="215.77059"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     inkscape:window-x="1920"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3156">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-782.36214)">
+    <g
+       transform="matrix(1.4183663,0,0,1.4183663,-176.66236,708.26009)"
+       id="g3143">
+      <g
+         id="g3145">
+        <rect
+           ry="1.979573"
+           rx="1.979573"
+           y="91.02578"
+           x="451.42856"
+           height="136.24425"
+           width="77.142853"
+           id="rect3147"
+           style="fill:#000000;fill-opacity:1;stroke:none" />
+        <path
+           transform="matrix(0.60405826,0,0,0.60405826,255.92741,41.785965)"
+           d="m 398.57143,284.14789 c 0,6.11458 -4.95685,11.07143 -11.07143,11.07143 -6.11458,0 -11.07143,-4.95685 -11.07143,-11.07143 0,-6.11458 4.95685,-11.07143 11.07143,-11.07143 6.11458,0 11.07143,4.95685 11.07143,11.07143 z"
+           sodipodi:ry="11.071428"
+           sodipodi:rx="11.071428"
+           sodipodi:cy="284.14789"
+           sodipodi:cx="387.5"
+           id="path3149"
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
+           sodipodi:type="arc" />
+      </g>
+      <rect
+         style="fill:#eeeeec;fill-opacity:1;stroke:none"
+         id="rect3151"
+         width="67.85714"
+         height="99.285713"
+         x="456.07141"
+         y="98.076469"
+         rx="1.979573"
+         ry="1.979573" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:10.36989403px;font-style:normal;font-weight:normal;line-height:150%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="402.4881"
+       y="819.67322"
+       id="text3153"
+       sodipodi:linespacing="150%"><tspan
+         sodipodi:role="line"
+         x="402.4881"
+         y="819.67322"
+         id="tspan3155"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:150%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">app URL: /journey/john-doe-in-china</tspan></text>
+    <g
+       id="g3185"
+       transform="translate(4.7755041,787.98796)">
+      <g
+         transform="translate(0,-1.4743229)"
+         id="g3187">
+        <g
+           style="fill:#edd400"
+           transform="translate(41.071429,0)"
+           id="g3189">
+          <rect
+             ry="1.979573"
+             rx="1.592347"
+             y="138.70844"
+             x="191.24387"
+             height="5.0507507"
+             width="210.17795"
+             id="rect3191"
+             style="fill:#edd400;fill-opacity:1;stroke:none" />
+          <path
+             transform="matrix(-0.32917971,0,0,0.32917971,266.13007,72.639441)"
+             inkscape:transform-center-x="1.580028"
+             d="m 243.45342,208.37973 -14.39966,8.31365 -14.39966,8.31364 0,-16.62729 0,-16.62729 14.39966,8.31364 z"
+             inkscape:randomized="0"
+             inkscape:rounded="0"
+             inkscape:flatsided="false"
+             sodipodi:arg2="1.0471976"
+             sodipodi:arg1="0"
+             sodipodi:r2="9.5997715"
+             sodipodi:r1="19.199543"
+             sodipodi:cy="208.37973"
+             sodipodi:cx="224.25388"
+             sodipodi:sides="3"
+             id="path3193"
+             style="fill:#edd400;fill-opacity:1;stroke:none"
+             sodipodi:type="star" />
+        </g>
+        <g
+           style="fill:#888a85"
+           id="g3195"
+           transform="translate(-25.357143,-4.2857143)">
+          <path
+             sodipodi:nodetypes="cssccssscccc"
+             inkscape:connector-curvature="0"
+             id="path3197"
+             d="m 232.74142,142.69754 c -4.86947,0 -8.8125,3.94303 -8.8125,8.8125 0,4.86947 3.94303,8.88281 8.8125,8.88281 0.12579,0 0.2505,0.005 0.375,0 l 0,-5.03576 c -0.0933,0.007 -0.18635,-0.013 -0.28125,-0.013 -2.19435,0 -3.96875,-1.54601 -3.96875,-3.74036 0,-2.19435 2.03483,-3.88194 4.22918,-3.88194 0.0949,0 -0.0725,-0.0621 0.0208,-0.0556 l 0,-4.96875 c -0.1245,-0.005 -0.24921,0 -0.375,0 z"
+             style="fill:#888a85;fill-opacity:1;stroke:none" />
+          <rect
+             style="fill:#888a85;fill-opacity:1;stroke:none"
+             id="rect3199"
+             width="231.85333"
+             height="4.9747772"
+             x="230.81314"
+             y="155.34236"
+             rx="1.592347"
+             ry="1.979573" />
+          <path
+             sodipodi:type="star"
+             style="fill:#888a85;fill-opacity:1;stroke:none"
+             id="path3201"
+             sodipodi:sides="3"
+             sodipodi:cx="224.25388"
+             sodipodi:cy="208.37973"
+             sodipodi:r1="19.199543"
+             sodipodi:r2="9.5997715"
+             sodipodi:arg1="0"
+             sodipodi:arg2="1.0471976"
+             inkscape:flatsided="false"
+             inkscape:rounded="0"
+             inkscape:randomized="0"
+             d="m 243.45342,208.37973 -14.39966,8.31365 -14.39966,8.31364 0,-16.62729 0,-16.62729 14.39966,8.31364 z"
+             inkscape:transform-center-x="-1.5800296"
+             transform="matrix(0.32917971,0,0,0.32917971,388.81103,89.27337)" />
+          <path
+             sodipodi:nodetypes="sssssssss"
+             inkscape:connector-curvature="0"
+             id="path3203"
+             d="m 233.20015,142.66379 7.28908,0 c 0.88216,0 1.59235,0.55811 1.59235,1.25136 l 0,2.54803 c 0,0.69325 -0.71019,1.25136 -1.59235,1.25136 l -7.28908,0 c -0.88216,0 -1.59235,-0.55811 -1.59235,-1.25136 l 0,-2.54803 c 0,-0.69325 0.71019,-1.25136 1.59235,-1.25136 z"
+             style="fill:#888a85;fill-opacity:1;stroke:none" />
+        </g>
+      </g>
+      <g
+         transform="translate(123.61278,-4.6428572)"
+         id="g3205">
+        <path
+           sodipodi:type="arc"
+           style="fill:#eeeeec;fill-opacity:1;stroke:none"
+           id="path3207"
+           sodipodi:cx="276.78571"
+           sodipodi:cy="143.07646"
+           sodipodi:rx="13.571428"
+           sodipodi:ry="13.571428"
+           d="m 290.35713,143.07646 c 0,7.49529 -6.07613,13.57143 -13.57142,13.57143 -7.4953,0 -13.57143,-6.07614 -13.57143,-13.57143 0,-7.49529 6.07613,-13.57143 13.57143,-13.57143 7.49529,0 13.57142,6.07614 13.57142,13.57143 z"
+           transform="translate(0,7.5)" />
+        <text
+           sodipodi:linespacing="150%"
+           id="text3209"
+           y="154.73447"
+           x="274.0137"
+           style="font-size:15.37423992px;font-style:normal;font-weight:normal;line-height:150%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           xml:space="preserve"><tspan
+             style="font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:150%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+             id="tspan3211"
+             y="154.73447"
+             x="274.0137"
+             sodipodi:role="line">1</tspan></text>
+      </g>
+    </g>
+    <text
+       sodipodi:linespacing="150%"
+       id="text3305"
+       y="910.86926"
+       x="34.236736"
+       style="font-size:10.36989403px;font-style:normal;font-weight:normal;line-height:150%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:150%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         id="tspan3307"
+         y="910.86926"
+         x="34.236736"
+         sodipodi:role="line">merged endpoints</tspan></text>
+    <g
+       transform="translate(108.3323,603.53787)"
+       id="g3378">
+      <text
+         xml:space="preserve"
+         style="font-size:10.36989403px;font-style:normal;font-weight:normal;line-height:150%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="168.23776"
+         y="411.83102"
+         id="text3311"
+         sodipodi:linespacing="150%"><tspan
+           sodipodi:role="line"
+           x="168.23776"
+           y="411.83102"
+           id="tspan3313"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:150%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">Client request</tspan></text>
+      <rect
+         style="fill:#edd400;fill-opacity:1;stroke:none"
+         id="rect3319"
+         width="9.25"
+         height="9.25"
+         x="153"
+         y="404.14172" />
+    </g>
+    <g
+       id="g3383"
+       transform="translate(104.20013,603.53787)">
+      <text
+         sodipodi:linespacing="150%"
+         id="text3315"
+         y="411.43698"
+         x="279.73776"
+         style="font-size:10.36989403px;font-style:normal;font-weight:normal;line-height:150%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:150%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           id="tspan3317"
+           y="411.43698"
+           x="279.73776"
+           sodipodi:role="line">API Response</tspan></text>
+      <rect
+         y="404.14172"
+         x="265.5"
+         height="9.25"
+         width="9.25"
+         id="rect3321"
+         style="fill:#888a85;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       transform="translate(119.18986,603.53787)"
+       id="g3388">
+      <text
+         sodipodi:linespacing="150%"
+         id="text3372"
+         y="411.83102"
+         x="55.807785"
+         style="font-size:10.36989403px;font-style:normal;font-weight:normal;line-height:150%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:150%;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           id="tspan3374"
+           y="411.83102"
+           x="55.807785"
+           sodipodi:role="line">Cache token</tspan></text>
+      <rect
+         y="404.14172"
+         x="40.570023"
+         height="9.25"
+         width="9.25"
+         id="rect3376"
+         style="fill:#e9b96e;fill-opacity:1;stroke:none" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:15.37423992px;font-style:normal;font-weight:normal;line-height:279.99999523%;letter-spacing:0px;word-spacing:0px;fill:#888a85;fill-opacity:1;stroke:none;font-family:Sans"
+       x="35.760937"
+       y="939.0022"
+       id="text3323"
+       sodipodi:linespacing="280%"><tspan
+         sodipodi:role="line"
+         x="35.760937"
+         y="939.0022"
+         id="tspan3333"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:279.99999523%;fill:#888a85;font-family:Ubuntu;-inkscape-font-specification:Ubuntu">/api/merged/journey</tspan></text>
+    <g
+       transform="translate(-101.54862,392.40644)"
+       id="g3437">
+      <rect
+         y="560.5694"
+         x="410.82904"
+         height="16.263428"
+         width="54.800777"
+         id="rect3439"
+         style="fill:#e9b96e;fill-opacity:1;stroke:none"
+         rx="3.5355339"
+         ry="3.5355339" />
+      <text
+         sodipodi:linespacing="280%"
+         id="text3441"
+         y="572.69727"
+         x="415.88208"
+         style="font-size:11.51629162px;font-style:normal;font-weight:normal;line-height:279.99999523%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:279.99999523%;fill:#ffffff;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+           id="tspan3443"
+           y="572.69727"
+           x="415.88208"
+           sodipodi:role="line">xcv45w2</tspan></text>
+    </g>
+  </g>
+</svg>

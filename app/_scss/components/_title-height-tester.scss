@@ -1,4 +1,4 @@
 .title-height-tester {
   opacity: 0;
-  @include multi-grid-span(3, 1);
+  @include multi-grid-span(4, 1);
 }

@@ -8,7 +8,7 @@ published: true
 
 How to create an API that is performant for mobile devices? That is a question that is bugging me for a while.
 
-I think tools like Drupal, or angular are on a good road, but not for mobile apps. Hitting the server 20 times for 10 second of using an app, doesn't seem such a good idea to me.
+I think tools like Drupal, or angular are on a good road, but not for mobile apps. Hitting the server 20 times for 10 seconds of using an app, doesn't seem such a good idea to me.
 
 I have been thinking about merged endpoints. I will explain it with an example of the app that has made me think about it. A travel blog. Suppose we have a SAAS travel blog, everyone can create a blog, and a blog is located at johndoe.travelblog.cool. Let's say that we are creating the frontend plain javascript with the help of (a lot) libaries.
 
