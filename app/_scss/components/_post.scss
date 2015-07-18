@@ -74,6 +74,9 @@
 
 
   img.left {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
     @include isolation-span(1, 1, 'both', 1, $gutter: 0);
 
     @include breakpoint($tablet) {
