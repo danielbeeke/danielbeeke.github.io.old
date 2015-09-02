@@ -23,10 +23,10 @@ $(function() {
       $('.transition-photo').addClass('show')
     }, 100)
 
-    $('body').append('<div class="fifth-grid-start-tester"></div>')
+    $('.page-wrapper').append('<div class="fifth-grid-start-tester"></div>')
     var newLeft = $('.fifth-grid-start-tester').offset().left
 
-    $('body').append('<h1 class="post-title title-height-tester">About me</h1>')
+    $('.page-wrapper').append('<h1 class="post-title title-height-tester">About me</h1>')
 
     var newTitleHeight = $('.title-height-tester').outerHeight()
     $('.title-height-tester').remove()
