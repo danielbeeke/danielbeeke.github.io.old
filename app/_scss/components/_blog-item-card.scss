@@ -1,11 +1,7 @@
 .padder {
   position: relative;
   transition: opacity $speed $easing;
-  margin-bottom: 30px;
-
-  @include breakpoint($tablet) {
-    margin-bottom: 10px;
-  }
+  margin-bottom: 20px;
 
   &.hidden {
     overflow: hidden;

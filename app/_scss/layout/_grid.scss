@@ -10,7 +10,12 @@ $modern: 1480px;
 @include add-grid(1 8 8 8 8 8 1 at $desktop);
 @include add-grid(2 4 4 4 4 4 2 at $modern);
 
-@include add-gutter(10px);
+@include add-gutter(20px);
 @include sgs-change('debug', true);
 @include add-gutter-style('split');
 @include sgs-change('output', 'isolation');
+
+.page-wrapper {
+  max-width: 2100px;
+  margin: 0 auto;
+}

@@ -9,6 +9,7 @@
   .fake-link {
     text-decoration: underline;
     color: $black;
+    white-space: nowrap;
   }
 
   p {
