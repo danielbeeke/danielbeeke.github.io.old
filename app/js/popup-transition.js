@@ -13,11 +13,15 @@ $(function() {
 
     var transitionImage = $($('.blog-item-background', this)[0].outerHTML)
     transitionImage.addClass('transition-card')
+
+    var width = $(that).parent().width() * 1.36
+    var height = $(that).parent().height() * 1.36
+
     transitionImage.css({
-      width: $(that).parent().width() * 1.36,
-      height: $(that).parent().height() * 1.36,
-      top: $(that).offset().top - $(window).scrollTop() - 35,
-      left: $(that).offset().left - 55
+      width: width,
+      height: height,
+      top: $(that).offset().top - ((height - $(that).parent().height()) / 2) + (27 * 1.36),
+      left: $(that).offset().left - ((width - $(that).parent().width()) / 2)
     })
     $('body').append(transitionImage)
     $('body').append('<div class="close-popup"></div>')
