@@ -42,7 +42,7 @@ $(function() {
         width: $('.fifth-grid-start-tester').width() + 10,
         height: 400
       }).one('transitionend', function () {
-        window.location = $('.blog-item-link', that).attr('href')
+        //window.location = $('.blog-item-link', that).attr('href')
       })
     })
 

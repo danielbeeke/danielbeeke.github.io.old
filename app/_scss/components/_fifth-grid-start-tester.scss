@@ -1,4 +1,4 @@
 .fifth-grid-start-tester {
   height: 20px;
-  @include multi-grid-span(2, 5);
+  @include grid-span(2, 5);
 }
