@@ -1,4 +1,9 @@
 .fifth-grid-start-tester {
   height: 20px;
-  @include grid-span(2, 5);
+
+  @include grid-span(3, 3);
+
+  @include breakpoint($tablet) {
+    @include isolation-span(1, 4, 'left', $gutter: 0);
+  }
 }
